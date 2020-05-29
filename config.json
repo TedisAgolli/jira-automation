@@ -1,20 +1,20 @@
 {
     "credentials": {
-        "username": "",
-        "password": "",
+        "username": "", //Bitbucket login email
+        "password": "", //Bitbucket API key
         "server": ""
     },
     "ticket": {
-        "project": "",
+        "project": "", // All caps project name(e.g. REACT)
         "summary": "",
         "description": "",
         "issueType": "",
         "assignees": [
             {
-                "name": "",
-                "id": ""
+                "name": "", // Just for logging purposes
+                "id": "" // ID shown in the hyperlink when visiting a user profile in Jira
             }
         ],
-        "attachmentNames": []
+        "attachmentNames": [] // Full paths to the files that need to be attached
     }
 }
