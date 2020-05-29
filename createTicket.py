@@ -8,12 +8,12 @@ def loadTicketInfo():
     return (info["credentials"], info["ticket"])
 
 
-#example
+# example
 # def getAllUsers():
-    # for user in jira.group_members("API"):
-        # print(jira.user(user))
-    # for group in jira.groups():
-        # print(group)
+# for user in jira.group_members("API"):
+# print(jira.user(user))
+# for group in jira.groups():
+# print(group)
 
 
 if __name__ == "__main__":
@@ -23,15 +23,16 @@ if __name__ == "__main__":
         options={"server": credentials["server"]},
         basic_auth=(credentials["username"], credentials["password"]),
     )
-    for assigneeId in ticketInfo["assigneIds"]:
+    for assignee in ticketInfo["assignees"]:
         newIssue = jira.create_issue(
             project=ticketInfo["project"],
             summary=ticketInfo["summary"],
             description=ticketInfo["description"],
             issuetype={"name": ticketInfo["issueType"]},
-            assignee={"accountId": assigneeId},
+            assignee={"accountId": assignee["id"]},
         )
 
         for attachmentName in ticketInfo["attachmentNames"]:
             with open(attachmentName, "rb") as f:
                 jira.add_attachment(newIssue, f)
+        print("Created ticket %s and assigned it to %s" % (newIssue, assignee["name"]))

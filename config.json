@@ -9,7 +9,12 @@
         "summary": "",
         "description": "",
         "issueType": "",
-        "assigneeIds": [],
+        "assignees": [
+            {
+                "name": "",
+                "id": ""
+            }
+        ],
         "attachmentNames": []
     }
 }
